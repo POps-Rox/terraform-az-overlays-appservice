@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 module "mod_storage_account" {
-  source                       = "azurenoops/overlays-storage-account/azurerm"
+  source                       = "github.com/POps-Rox/tf-az-overlays-storageaccount"
   version                      = "~> 1.0"
   count                        = var.app_service_resource_type == "FunctionApp" ? 1 : 0
   location                     = local.location

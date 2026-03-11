@@ -3,7 +3,7 @@
 
 module "mod_app_service" {
   source = "../.." # Use this line if you are using the local module
-  #source  = "azurenoops/overlays-app-service/azurerm"
+  #source  = "github.com/POps-Rox/tf-az-overlays-appservice"
   #version = "x.x.x"
 
   depends_on = [azurerm_resource_group.app-rg]
