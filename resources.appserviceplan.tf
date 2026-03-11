@@ -9,7 +9,7 @@ resource "azurerm_service_plan" "asp" {
   os_type                    = var.app_service_plan_os_type
   app_service_environment_id = var.enable_app_service_environment == false ? null : data.azurerm_app_service_environment_v3.ase.0.id
 
-  sku_name = var.app_service_plan_sku_name
+  sku_name     = var.app_service_plan_sku_name
   worker_count = var.app_service_plan_worker_count
-  tags     = merge(var.add_tags, local.default_tags) 
+  tags         = merge(var.add_tags, local.default_tags)
 }

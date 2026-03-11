@@ -134,7 +134,7 @@ variable "windows_app_site_config" {
         }))
       })
     }))
-    container_registry_use_managed_identity       = optional(bool)
+    container_registry_use_managed_identity = optional(bool)
     cors = optional(object({
       allowed_origins     = list(string)
       support_credentials = optional(bool)
@@ -242,12 +242,12 @@ variable "windows_function_app_site_config" {
       service_tag               = optional(string)
       virtual_network_subnet_id = optional(string)
     })))
-    load_balancing_mode               = optional(string)
-    managed_pipeline_mode             = optional(string)
-    minimum_tls_version               = optional(string)
-    pre_warmed_instance_count         = optional(number)
-    remote_debugging_enabled          = optional(bool)
-    remote_debugging_version          = optional(string)
+    load_balancing_mode              = optional(string)
+    managed_pipeline_mode            = optional(string)
+    minimum_tls_version              = optional(string)
+    pre_warmed_instance_count        = optional(number)
+    remote_debugging_enabled         = optional(bool)
+    remote_debugging_version         = optional(string)
     runtime_scale_monitoring_enabled = optional(bool)
     scm_ip_restriction = optional(list(object({
       action = optional(string)
@@ -301,7 +301,7 @@ variable "linux_app_site_config" {
       python_version      = optional(string)
       ruby_version        = optional(string)
     }))
-    container_registry_use_managed_identity       = optional(bool)
+    container_registry_use_managed_identity = optional(bool)
     cors = optional(object({
       allowed_origins     = list(string)
       support_credentials = optional(bool)
@@ -383,7 +383,7 @@ variable "linux_function_app_site_config" {
       disk_quota_mb         = optional(number)
       retention_period_days = optional(number)
     }))
-    container_registry_use_managed_identity       = optional(bool)
+    container_registry_use_managed_identity = optional(bool)
     cors = optional(object({
       allowed_origins     = list(string)
       support_credentials = optional(bool)
@@ -408,12 +408,12 @@ variable "linux_function_app_site_config" {
       service_tag               = optional(string)
       virtual_network_subnet_id = optional(string)
     })))
-    load_balancing_mode               = optional(string)
-    managed_pipeline_mode             = optional(string)
-    minimum_tls_version               = optional(string)
-    pre_warmed_instance_count         = optional(number)
-    remote_debugging_enabled          = optional(bool)
-    remote_debugging_version          = optional(string)
+    load_balancing_mode              = optional(string)
+    managed_pipeline_mode            = optional(string)
+    minimum_tls_version              = optional(string)
+    pre_warmed_instance_count        = optional(number)
+    remote_debugging_enabled         = optional(bool)
+    remote_debugging_version         = optional(string)
     runtime_scale_monitoring_enabled = optional(bool)
     scm_ip_restriction = optional(list(object({
       action = optional(string)
@@ -439,10 +439,10 @@ variable "linux_function_app_site_config" {
   default = null
 }
 
-variable website_run_from_package {
-  type = string
+variable "website_run_from_package" {
+  type        = string
   description = "Allows your apps to run from a deployment ZIP package file. You can enable this with a setting of 1, or a URL to a package path"
-  default = null
+  default     = null
 }
 
 #######################################

@@ -42,10 +42,10 @@ module "mod_app_service" {
   # App Service Site Configuration
   linux_app_site_config = {
     always_on = true
-    application_stack = {      
-      dotnet_version   = "6.0"
+    application_stack = {
+      dotnet_version = "6.0"
     }
-    container_registry_use_managed_identity = true    
+    container_registry_use_managed_identity = true
     ftps_state                              = "Disabled"
     http2_enabled                           = true
     http_logging_enabled                    = true

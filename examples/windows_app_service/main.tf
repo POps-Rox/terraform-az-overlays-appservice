@@ -44,14 +44,14 @@ module "mod_app_service" {
     application_stack = {
       dotnet_version = "6.0"
     }
-    ftps_state                              = "Disabled"
-    http2_enabled                           = true
-    http_logging_enabled                    = true
-    min_tls_version                         = "1.2"
-    remote_debugging_enabled                = true
-    websockets_enabled                      = false
+    ftps_state               = "Disabled"
+    http2_enabled            = true
+    http_logging_enabled     = true
+    min_tls_version          = "1.2"
+    remote_debugging_enabled = true
+    websockets_enabled       = false
   }
 
-  add_tags =local.tags
+  add_tags = local.tags
 }
 

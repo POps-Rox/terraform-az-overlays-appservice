@@ -14,16 +14,16 @@ module "mod_key_vault" {
   deploy_environment           = var.deploy_environment
   org_name                     = var.org_name
   workload_name                = var.workload_name
-  
+
   # Creating Private Endpoint requires, VNet name to create a Private Endpoint
   # By default this will create a `privatelink.vaultcore.azure.net` DNS zone. if created in commercial cloud
   # To use existing subnet, specify `existing_private_subnet_name` with valid subnet name. 
   # To use existing private DNS zone specify `existing_private_dns_zone` with valid zone name.
-  enable_private_endpoint       = var.create_app_keyvault
-  virtual_network_name          = data.azurerm_virtual_network.pe_vnet.name  
-  existing_private_dns_zone     = var.existing_keyvault_private_dns_zone != null ? var.existing_keyvault_private_dns_zone : null
-  existing_private_subnet_name  = data.azurerm_subnet.pe_subnet.name
-  
+  enable_private_endpoint      = var.create_app_keyvault
+  virtual_network_name         = data.azurerm_virtual_network.pe_vnet.name
+  existing_private_dns_zone    = var.existing_keyvault_private_dns_zone != null ? var.existing_keyvault_private_dns_zone : null
+  existing_private_subnet_name = data.azurerm_subnet.pe_subnet.name
+
   # Current user should be here to be able to create keys and secrets
   #admin_objects_ids = [
   #  data.azuread_group.admin_group.id

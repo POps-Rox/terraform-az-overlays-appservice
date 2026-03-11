@@ -22,7 +22,7 @@ resource "azurerm_windows_web_app" "appService" {
     application_stack {
       current_stack                = var.windows_app_site_config.application_stack.current_stack
       docker_container_name        = var.windows_app_site_config.application_stack.docker_container_name
-      docker_container_registry    = var.create_app_container_registry ? module.mod_container_registry.0.login_server : var.windows_app_site_config.application_stack.docker_container_registry 
+      docker_container_registry    = var.create_app_container_registry ? module.mod_container_registry.0.login_server : var.windows_app_site_config.application_stack.docker_container_registry
       docker_container_tag         = var.windows_app_site_config.application_stack.docker_container_tag
       dotnet_version               = var.windows_app_site_config.application_stack.dotnet_version
       dotnet_core_version          = var.windows_app_site_config.application_stack.dotnet_core_version
@@ -64,7 +64,7 @@ resource "azurerm_windows_web_app" "appService" {
   app_settings = {
     APPINSIGHTS_INSTRUMENTATIONKEY = azurerm_application_insights.app_service_app_insights[0].instrumentation_key
     APPINSIGHTS_CONNECTION_STRING  = azurerm_application_insights.app_service_app_insights[0].connection_string
-    WEBSITE_RUN_FROM_PACKAGE = var.website_run_from_package
+    WEBSITE_RUN_FROM_PACKAGE       = var.website_run_from_package
   }
 
   identity {
