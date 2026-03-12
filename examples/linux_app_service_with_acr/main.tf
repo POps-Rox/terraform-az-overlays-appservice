@@ -3,6 +3,10 @@
 
 module "mod_app_service" {
   source = "../.." # Use this line if you are using the local module
+
+  providers = {
+    azurerm = azurerm
+  }
   #source  = "github.com/POps-Rox/tf-az-overlays-appservice"
   #version = "x.x.x"
 
