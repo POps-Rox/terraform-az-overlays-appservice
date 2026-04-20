@@ -4,7 +4,7 @@
 #------------------------------------------------------------
 # Azure NoOps Naming - This should be used on all resource naming
 #------------------------------------------------------------
-data "azurenoopsutils_resource_name" "app_service_web" {
+data "popsrox_resource_name" "app_service_web" {
   name          = var.workload_name
   resource_type = "azurerm_app_service"
   prefixes      = [var.org_name, var.use_location_short_name ? module.mod_azure_region_lookup.location_short : var.location]
@@ -14,7 +14,7 @@ data "azurenoopsutils_resource_name" "app_service_web" {
   separator     = "-"
 }
 
-data "azurenoopsutils_resource_name" "app_service_plan" {
+data "popsrox_resource_name" "app_service_plan" {
   name          = var.workload_name
   resource_type = "azurerm_app_service_plan"
   prefixes      = [var.org_name, var.use_location_short_name ? module.mod_azure_region_lookup.location_short : var.location]
@@ -24,7 +24,7 @@ data "azurenoopsutils_resource_name" "app_service_plan" {
   separator     = "-"
 }
 
-data "azurenoopsutils_resource_name" "application_insights" {
+data "popsrox_resource_name" "application_insights" {
   name          = var.workload_name
   resource_type = "azurerm_application_insights"
   prefixes      = [var.org_name, var.use_location_short_name ? module.mod_azure_region_lookup.location_short : var.location]
@@ -34,7 +34,7 @@ data "azurenoopsutils_resource_name" "application_insights" {
   separator     = "-"
 }
 
-data "azurenoopsutils_resource_name" "app_user_assigned_identity" {
+data "popsrox_resource_name" "app_user_assigned_identity" {
   name          = var.workload_name
   resource_type = "azurerm_user_assigned_identity"
   prefixes      = [var.org_name, var.use_location_short_name ? module.mod_azure_region_lookup.location_short : var.location]
