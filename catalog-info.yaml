@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: tf-az-overlays-appservice
+  name: terraform-az-overlays-appservice
   description: Terraform overlay module for Azure App Service
   annotations:
-    github.com/project-slug: POps-Rox/tf-az-overlays-appservice
+    github.com/project-slug: POps-Rox/terraform-az-overlays-appservice
     backstage.io/techdocs-ref: dir:.
   tags:
     - terraform
@@ -12,7 +12,7 @@ metadata:
     - azure
     - platform-ops
   links:
-    - url: https://github.com/POps-Rox/tf-az-overlays-appservice
+    - url: https://github.com/POps-Rox/terraform-az-overlays-appservice
       title: GitHub Repository
       icon: github
 spec:

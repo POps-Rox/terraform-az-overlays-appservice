@@ -7,7 +7,7 @@ module "mod_app_service" {
   providers = {
     azurerm = azurerm
   }
-  #source  = "github.com/POps-Rox/tf-az-overlays-appservice"
+  #source  = "github.com/POps-Rox/terraform-az-overlays-appservice"
   #version = "x.x.x"
 
   depends_on = [azurerm_resource_group.app-rg]

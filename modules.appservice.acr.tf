@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 module "mod_container_registry" {
-  source                       = "github.com/POps-Rox/tf-az-overlays-containerregistry"
+  source                       = "github.com/POps-Rox/terraform-az-overlays-containerregistry"
   count                        = var.create_app_container_registry ? 1 : 0
   existing_resource_group_name = local.resource_group_name
   location                     = local.location
