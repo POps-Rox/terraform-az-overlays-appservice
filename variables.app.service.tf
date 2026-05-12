@@ -70,16 +70,11 @@ variable "deployment_slot_count" {
   default     = 0
 }
 
+# tflint-ignore: terraform_unused_declarations
 variable "create_app_storage_account" {
   description = "Controls if the storage account should be created. Default is true."
   type        = bool
   default     = true
-}
-
-variable "use_32_bit_worker" {
-  description = "Use 32 bit worker for the app service"
-  type        = bool
-  default     = false
 }
 
 variable "windows_app_site_config" {

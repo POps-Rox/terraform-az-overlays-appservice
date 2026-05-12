@@ -5,6 +5,7 @@
 # Storage Configuration    #
 ############################
 
+# tflint-ignore: terraform_unused_declarations
 variable "app_storage_account_name" {
   description = "Name of an existing storage account to use with the app service"
   type        = string
