@@ -20,10 +20,11 @@ resource "azurerm_windows_web_app" "appService" {
     api_management_api_id = var.windows_app_site_config.api_management_api_id
     app_command_line      = var.windows_app_site_config.app_command_line
     application_stack {
-      current_stack                = var.windows_app_site_config.application_stack.current_stack
-      docker_container_name        = var.windows_app_site_config.application_stack.docker_container_name
-      docker_container_registry    = var.create_app_container_registry ? module.mod_container_registry.0.login_server : var.windows_app_site_config.application_stack.docker_container_registry
-      docker_container_tag         = var.windows_app_site_config.application_stack.docker_container_tag
+      current_stack = var.windows_app_site_config.application_stack.current_stack
+      # azurerm 4.x consolidated docker fields: `docker_container_*` are now
+      # `docker_image_name` ("image:tag") plus `docker_registry_url`.
+      docker_image_name            = var.windows_app_site_config.application_stack.docker_container_name == null ? null : "${var.windows_app_site_config.application_stack.docker_container_name}:${var.windows_app_site_config.application_stack.docker_container_tag == null ? "latest" : var.windows_app_site_config.application_stack.docker_container_tag}"
+      docker_registry_url          = var.windows_app_site_config.application_stack.docker_container_name == null ? null : "https://${var.create_app_container_registry ? module.mod_container_registry.0.login_server : var.windows_app_site_config.application_stack.docker_container_registry}"
       dotnet_version               = var.windows_app_site_config.application_stack.dotnet_version
       dotnet_core_version          = var.windows_app_site_config.application_stack.dotnet_core_version
       tomcat_version               = var.windows_app_site_config.application_stack.tomcat_version

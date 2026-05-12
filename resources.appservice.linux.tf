@@ -19,8 +19,10 @@ resource "azurerm_linux_web_app" "linuxapp" {
     api_management_api_id = var.linux_app_site_config.api_management_api_id
     app_command_line      = var.linux_app_site_config.app_command_line
     application_stack {
-      docker_image        = var.linux_app_site_config.application_stack.docker_image == null ? null : "${module.mod_container_registry.0.login_server}/${var.linux_app_site_config.application_stack.docker_image}"
-      docker_image_tag    = var.linux_app_site_config.application_stack.docker_image_tag == null ? null : var.linux_app_site_config.application_stack.docker_image_tag
+      # azurerm 4.x consolidated docker fields: `docker_image` + `docker_image_tag`
+      # are now `docker_image_name` ("image:tag") plus `docker_registry_url`.
+      docker_image_name   = var.linux_app_site_config.application_stack.docker_image == null ? null : "${var.linux_app_site_config.application_stack.docker_image}:${var.linux_app_site_config.application_stack.docker_image_tag == null ? "latest" : var.linux_app_site_config.application_stack.docker_image_tag}"
+      docker_registry_url = var.linux_app_site_config.application_stack.docker_image == null ? null : "https://${module.mod_container_registry.0.login_server}"
       dotnet_version      = var.linux_app_site_config.application_stack.dotnet_version == null ? null : var.linux_app_site_config.application_stack.dotnet_version
       go_version          = var.linux_app_site_config.application_stack.go_version
       java_server         = var.linux_app_site_config.application_stack.java_server
