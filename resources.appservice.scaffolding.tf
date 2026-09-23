@@ -6,7 +6,7 @@
 #--------------------------------------
 # This module will lookup the Azure Region and return the short name for the region
 module "mod_azure_region_lookup" {
-  source = "github.com/POps-Rox/terraform-az-overlays-azregionslookup?ref=v2.0.0"
+  source = "github.com/POps-Rox/terraform-az-overlays-azregionslookup?ref=v3.0.0"
 
   azure_region = var.location
 }
@@ -23,7 +23,7 @@ data "azurerm_resource_group" "rg" {
 }
 
 module "mod_scaffold_rg" {
-  source = "github.com/POps-Rox/terraform-az-overlays-resourcegroup?ref=v2.0.0"
+  source = "github.com/POps-Rox/terraform-az-overlays-resourcegroup?ref=v3.0.0"
 
   count = var.create_app_resource_group ? 1 : 0
 

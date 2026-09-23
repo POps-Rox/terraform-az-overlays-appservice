@@ -1,5 +1,31 @@
 # Changelog
 
+# v3.0.0 - azurerm 5.x upgrade
+
+Changed
+- Raised the root `azurerm` provider constraint from `~> 4.20` to
+  `>= 5.0, < 6.0`; examples now pin `~> 5.6` for functional test stability.
+- Repointed pinned sibling module sources to the azurerm 5.x `v3.0.0` tags.
+- Kept examples pointed at the local module path (`../..`) so they validate the
+  current checkout instead of the pre-migration tag.
+- Removed the unsupported `ruby_version` argument from the
+  `azurerm_linux_web_app` application stack for azurerm 5.x.
+- Made the Key Vault access policy conditional on `create_app_keyvault` so the
+  default no-Key-Vault plan remains valid.
+
+Audited
+- No removed App Service Terraform resource declarations are present in this
+  module. The module already uses `azurerm_linux_web_app`,
+  `azurerm_windows_web_app`, `azurerm_linux_function_app`,
+  `azurerm_windows_function_app`, and `azurerm_service_plan`.
+- No `azurerm_monitor_diagnostic_setting` resources are present.
+
+Testing
+- Added `terraform test` coverage using `mock_provider` for naming precedence,
+  empty-string fallthrough, conditional App/WebApp branches, function branches,
+  tag merging, location passthrough, deployment slots, locks, and azurerm 5.x
+  replacement resource runtime-stack mapping.
+
 # v2.0.0 - Phase 1 azurerm 4.x upgrade
 
 Changed (BREAKING)
